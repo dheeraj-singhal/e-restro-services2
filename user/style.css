@@ -94,13 +94,13 @@ body {
   color: red;
 }
 
-@media(max-width: 480px){
-  .container{
+@media (max-width: 480px) {
+  .container {
     width: 350px;
   }
 }
-@media(max-width: 400px){
-  .container{
+@media (max-width: 400px) {
+  .container {
     width: 300px;
   }
 }
