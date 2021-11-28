@@ -1,6 +1,5 @@
 // Selector
 var phoneNumberValue, passwordValue;
-
 const form = document.getElementById('form');
 const phoneNumber = document.getElementById('phone-number');
 const password = document.getElementById('password');
@@ -25,7 +24,7 @@ form.addEventListener('submit',function(e){
         showError(password, "Password cannot be blank");
     } else {
         count++;
-        showSuccess(phoneNumber);
+        showSuccess(password);
     }
     var b = 0;
     if (count == 2) {
@@ -40,6 +39,7 @@ form.addEventListener('submit',function(e){
                 phoneNumberData = snap.val().password;
                 if(passwordValue == phoneNumberData) {
                     alert("Login Succesfully!!!");
+                    sessionStorage.setItem("phoneNumber" , phoneNumberValue);
                     window.location.href = "../index.html";
                 }
                 else {

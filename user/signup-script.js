@@ -57,7 +57,7 @@ form.addEventListener('submit', function(e){
             // console.log(childsnap.val().name);
             b++;
         });
-        if(b>0){
+        if(b>0) {
             alert('User already exits. Please Login!!!')
             document.getElementById('username').value = "";
             document.getElementById('phone-number').value = "";
@@ -77,6 +77,7 @@ form.addEventListener('submit', function(e){
             document.getElementById('phone-number').value = "";
             document.getElementById('password1').value = "";
             document.getElementById('password2').value = "";
+            sessionStorage.setItem("phoneNumber" , phoneNumberValue);
             window.location.href = '../index.html';
         }
    });

@@ -1,7 +1,12 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () => {
+var loggedInMobileNumber = '';
+
+loggedInMobileNumber = sessionStorage.getItem('phoneNumber');
+// console.log(loggedInMobileNumber);
+
+menu.onclick = function() {
   menu.classList.toggle('fa-times');
   navbar.classList.toggle('active');
 }
