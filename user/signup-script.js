@@ -16,7 +16,6 @@ form.addEventListener('submit', function(e){
     password1Value = password1.value.trim();
     password2Value = password2.value.trim();
 
-    console.log('hi');
     var count = 0;
     if(usernameValue == ''){
         showError(username, "Username can not be blank");
@@ -49,13 +48,13 @@ form.addEventListener('submit', function(e){
         count++;
         showSuccess(password2);
     }
-    console.log(count);
+    // console.log(count);
     var b = 0;
     if (count == 4){
         var reference = firebase.database().ref("Users/");
         reference.orderByChild("phone").equalTo(phoneNumberValue).once('value', function(snap) {
         snap.forEach(function(childsnap){
-            console.log(childsnap.val().name);
+            // console.log(childsnap.val().name);
             b++;
         });
         if(b>0){
@@ -64,6 +63,7 @@ form.addEventListener('submit', function(e){
             document.getElementById('phone-number').value = "";
             document.getElementById('password1').value = "";
             document.getElementById('password2').value = "";
+            window.location.href = "./login.html";
         } else {
             firebase.database()
             .ref("Users/" + phoneNumberValue)
@@ -77,6 +77,7 @@ form.addEventListener('submit', function(e){
             document.getElementById('phone-number').value = "";
             document.getElementById('password1').value = "";
             document.getElementById('password2').value = "";
+            window.location.href = '../index.html';
         }
    });
 }   
