@@ -561,7 +561,36 @@ footer .box-5{
 
 
 
-
+@media (max-width: 1476px) and (min-width: 1130px){
+    html{
+        font-size: 80%;
+    }
+    .home .home-slider .slide .content{
+        flex: 1 1 45rem;
+    }
+    .home .home-slider .slide .image{
+        flex: 1 1 45rem;
+    }
+    .home .home-slider .slide .image img{
+        width: auto;
+        margin-left: 30rem;
+    }
+    
+    .home .home-slider .slide .content span{
+        color: var(--green);
+        font-size: 2rem;
+    }
+    .home .home-slider .slide .content h3{
+        color: var(--green);
+        font-size: 5rem;
+    }
+    .home .home-slider .slide .content p{
+        color: var(--light-color);
+        font-size: 2rem;
+        padding: .5rem 0;
+        line-height: 1.5;
+    }
+}
 
 @media (max-width: 944px){
 
