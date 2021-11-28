@@ -16,6 +16,7 @@ form.addEventListener('submit', function(e){
     password1Value = password1.value.trim();
     password2Value = password2.value.trim();
 
+    console.log('hi');
     var count = 0;
     if(usernameValue == ''){
         showError(username, "Username can not be blank");
