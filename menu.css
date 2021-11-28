@@ -1,0 +1,119 @@
+.back-img{
+    margin-top: 4.4rem;  
+    background-image: url(./images/backimg2.jpg);
+    height: 16rem;
+    width: 100%;
+    opacity: .65;
+    text-align: center;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5);
+}
+
+
+.back-img h2{
+     /* margin-top: 5rem; */
+     padding-top: 5rem;
+     font-size: 3rem;
+     color: azure;
+}
+
+.back-img p{
+    color: rgb(233, 216, 216);
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.container-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: space-bewteen;
+    grid-row-gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+.container-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    grid-row-gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+.container-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    grid-row-gap: 2rem;
+    margin-top: 5rem; 
+    margin-bottom: 10rem;
+}
+.slide{
+    width: 25rem;
+    border: 1rem solid rgb(255, 252, 252);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.3);
+}
+
+.image{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 15rem;
+}
+
+.image img{
+    object-fit:fill;
+    width: 100%;
+    height: 100%;
+}
+
+.content-1{
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.content-heading{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.content-1 .price{
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--green);
+}
+
+.stars{
+    font-size: 1.2rem;
+    color: rgb(192, 36, 231);
+}
+
+.cart-btn{
+    padding: .7rem 3rem;
+    background-color: var(--green);
+    color: #fff;
+    font-size: 1.3rem;
+    border:  1px solid black;
+    border-radius: 10px;
+    margin: 1.2rem 0;
+}
+
+.genre-head{
+    margin-left: auto;
+    margin-right: auto; 
+    display: block; 
+    margin-top: 5rem;
+    color: #fff;
+    font-size: 2rem;
+    border:  1px outset white;
+    border-radius: 10px;
+    padding: .7rem 3rem;
+    background-color: rgb(7, 150, 43);
+}

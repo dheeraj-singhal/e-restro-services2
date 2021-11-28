@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign-up</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Create Account</h2>
+      </div>
+      <form class="form" id="form">
+        <div class="form-control">
+          <label for="username">Name</label>
+          <input type="text" id="username" placeholder="Enter Username" />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error Msg</small>
+        </div>
+
+        <form class="form" id="form">
+          <div class="form-control">
+            <label for="phone-number">Mobile number</label>
+            <input
+              type="text"
+              id="phone-number"
+              placeholder="Enter Mobile number"
+            />
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+            <small>Error Msg</small>
+          </div>
+
+        <div class="form-control">
+          <label for="password1">Password</label>
+          <input type="password" id="password1" placeholder="Enter Password" />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error Msg</small>
+        </div>
+
+        <div class="form-control">
+          <label for="password2">Re-Enter Password</label>
+          <input
+            type="password"
+            id="password2"
+            placeholder="Enter Password Again"
+          />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error Msg</small>
+        </div>
+        <p>Already have account ? <a href="./login.html">Sign in</a></p>
+        <button id="submit" type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+    <script type="module" src="./fireConfig.js"></script>
+    <script type = "module" src="./signup-script.js"></script>
+  </body>
+</html>

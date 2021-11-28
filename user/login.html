@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Login to your Account</h2>
+      </div>
+      <form class="form" id="form">
+        <div class="form-control">
+          <label for="phone-number">Mobile number</label>
+          <input
+            type="text"
+            id="phone-number"
+            placeholder="Enter Mobile number"
+          />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error Msg</small>
+        </div>
+
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter Password" />
+          <i class="fa fa-check-circle"></i>
+          <i class="fa fa-exclamation-circle"></i>
+          <small>Error Msg</small>
+        </div>
+        <p>Don't have account ? <a href="./sign-up.html">Create Account</a></p>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+    <script src="./fireConfig.js"></script>
+    <script src="./login-script.js"></script>
+  </body>
+</html>
