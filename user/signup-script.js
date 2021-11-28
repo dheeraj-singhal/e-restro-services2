@@ -1,4 +1,4 @@
-// Selector
+// // Selector
 
 var usernameValue, phoneNumberValue, password1Value, password2Value;
 
@@ -8,94 +8,81 @@ const phoneNumber = document.getElementById('phone-number');
 const password1 = document.getElementById('password1');
 const password2 = document.getElementById('password2');
 
-// Event Handler
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // data will not submit to server
-    if(checkInputs() === true) {
 
-        usernameValue = username.value.trim();
-        phoneNumberValue = phoneNumber.value.trim();
-        password1Value = password1.value.trim();
-        password2Value = password2.value.trim();
-        // console.log(usernameValue);
-        firebase
-        .database()
-        .ref("Users/" + phoneNumberValue)
-        .set({
-            name: usernameValue,
-            phone: phoneNumberValue,
-            password: password1Value,
-        });
-        alert("Account created Successfully!!!");
-        document.getElementById('username').value = "";
-        document.getElementById('phone-number').value = "";
-        document.getElementById('password1').value = "";
-        document.getElementById('password2').value = "";
-    }
-});
-
-// Functions
-function checkInputs() {
-    var count = 0;
+form.addEventListener('submit', function(e){
+    e.preventDefault();
     usernameValue = username.value.trim();
     phoneNumberValue = phoneNumber.value.trim();
     password1Value = password1.value.trim();
     password2Value = password2.value.trim();
 
-    if(usernameValue === '') {
+    var count = 0;
+    if(usernameValue == ''){
         showError(username, "Username can not be blank");
-    }
-    else {
+    } else {
+        count++;
         showSuccess(username);
-        count++;
-    } 
+    }
 
-    if(phoneNumberValue === '') {
-        showError(phoneNumber,"Mobile number can not be blank");
-    }
-    else if (!isPhoneValid(phoneNumberValue)) {
-        showError(phoneNumber, "Mobile number is not Valid");
-    } 
-    else if(isUserExits(phoneNumberValue)) {
-        alert('User already exits. Please Login!!!')
-        document.getElementById('username').value = "";
-        document.getElementById('phone-number').value = "";
-        document.getElementById('password1').value = "";
-        document.getElementById('password2').value = "";
-        return false;
-    }
-    else {
+    if(phoneNumberValue == ''){
+        showError(username, "Username can not be blank");
+    } else if(!isPhoneValid(phoneNumberValue)){
+        showError(phoneNumber, "Enter a valid 10 digit phone number.")
+    } else {
+        count++;
         showSuccess(phoneNumber);
-        count++;
-    }     
+    }
 
-    if(password1Value === '') {
-        showError(password1, "Password can not be blank");
-    }
-    else if(isPasswordValid(password1Value) < 6) {
-        showError(password1, "Password must be greater than 6");
-    }
-    else {
+    if(password1Value.length < 6){
+        showError(password1, "Password must be greater than 6 characters.")
+    } else {
+        count++;
         showSuccess(password1);
-        count++;
     }
 
-    if(password2Value === '') {
-        showError(password2, "Password can not be blank");
-    }
-    else if(password2Value != password1Value) {
-        showError(password2, "Passwords not matched");
-    }
-    else {
+    if(password2Value.length < 6){
+        showError(password2, "Password must be greater than 6 characters.");
+    } else if(password1Value != password2Value){
+        showError(password2, "Re-entered password does not match with the given password.")
+    } else {
+        count++;
         showSuccess(password2);
-        count++;
     }
-
-    if(count === 4) {
-        return true;
-    }
-    return false;
-}
+    // console.log(count);
+    var b = 0;
+    if (count == 4){
+        var reference = firebase.database().ref("Users/");
+        reference.orderByChild("phone").equalTo(phoneNumberValue).once('value', function(snap) {
+        snap.forEach(function(childsnap){
+            // console.log(childsnap.val().name);
+            b++;
+        });
+        if(b>0) {
+            alert('User already exits. Please Login!!!')
+            document.getElementById('username').value = "";
+            document.getElementById('phone-number').value = "";
+            document.getElementById('password1').value = "";
+            document.getElementById('password2').value = "";
+            window.location.href = "./login.html";
+        } else {
+            firebase.database()
+            .ref("Users/" + phoneNumberValue)
+            .set({
+                name: usernameValue,
+                phone: phoneNumberValue,
+                password: password1Value,
+            });
+            alert("Account created Successfully!!!");
+            document.getElementById('username').value = "";
+            document.getElementById('phone-number').value = "";
+            document.getElementById('password1').value = "";
+            document.getElementById('password2').value = "";
+            sessionStorage.setItem("phoneNumber" , phoneNumberValue);
+            window.location.href = '../index.html';
+        }
+   });
+}   
+});
 
 function showError(input,msg) {
     const formControl = input.parentNode;
@@ -116,37 +103,3 @@ function isPhoneValid(phoneNumber) {
 function isPasswordValid(password) {
     return password.length;
 }
-
-function isUserExits(phoneNumber) {
-    // firebase
-    //     .database()
-    //     .ref("Users/" + phoneNumber)
-    //     .on("value", function (snap) {
-    //         return snap.exists()
-    //     });
-    // firebase
-    //     .database()
-    //     .ref("Users/" + phoneNumber)
-    //     .get()
-    //     .then( (snap) => {
-    //         if(snap.exits()) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     });
-    var result = fetchDataWithValue(phoneNumber);
-    return result;
-}
-
-function fetchDataWithValue(a) {
-    var reference = firebase.database().ref("Users/");
-    reference.orderByChild("phone").equalTo(a).once('value', function(snap) {
-        var b = 0;
-        snap.forEach(function(childsnap){
-            b++;
-        });
-        return true;
-   });
-   return false;
-  }
