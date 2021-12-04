@@ -80,7 +80,7 @@ form.addEventListener('submit', function(e){
             document.getElementById('password1').value = "";
             document.getElementById('password2').value = "";
             sessionStorage.setItem("phoneNumber" , phoneNumberValue);
-            window.location.href = '../index.html';
+            window.location.href = './login.html';
         }
    });
 }   

@@ -40,7 +40,7 @@ form.addEventListener('submit',function(e){
                 if(passwordValue == phoneNumberData) {
                     alert("Login Succesfully!!!");
                     sessionStorage.setItem("phoneNumber" , phoneNumberValue);
-                    window.location.href = "../index.html";
+                    window.location.href = "../menu.html";
                 }
                 else {
                     alert("Login failed. Enter login credentials again!!!");
