@@ -97,7 +97,7 @@ function showSuccess(input) {
 }
 
 function isPhoneValid(phoneNumber) {
-    return /^[789]\d{9}$/.test(phoneNumber);
+    return /^[6789]\d{9}$/.test(phoneNumber);
 }
 
 function isPasswordValid(password) {
