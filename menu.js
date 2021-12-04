@@ -52,7 +52,7 @@ function addItemsToLayoutA(name, price, description, url){
 
   aName.innerHTML = name;
   aName.setAttribute('class', 'content-heading');
-  aPrice.innerHTML = "Rs. " + price + "/-";
+  aPrice.innerHTML = "₹ " + price + "/-";
   aPrice.setAttribute('class', 'price');
   aDescription.innerHTML = description;
   aDescription.setAttribute('class', 'stars');
@@ -96,7 +96,7 @@ function addItemsToLayoutA(name, price, description, url){
   
     aName.innerHTML = name;
     aName.setAttribute('class', 'content-heading');
-    aPrice.innerHTML = "Rs. " + price + "/-";
+    aPrice.innerHTML = "₹ " + price + "/-";
     aPrice.setAttribute('class', 'price');
     aDescription.innerHTML = description;
     aDescription.setAttribute('class', 'stars');
@@ -139,7 +139,7 @@ function addItemsToLayoutA(name, price, description, url){
   
     aName.innerHTML = name;
     aName.setAttribute('class', 'content-heading');
-    aPrice.innerHTML = "Rs. " + price + "/-";
+    aPrice.innerHTML = "₹ " + price + "/-";
     aPrice.setAttribute('class', 'price');
     aDescription.innerHTML = description;
     aDescription.setAttribute('class', 'stars');
