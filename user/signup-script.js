@@ -35,6 +35,8 @@ form.addEventListener('submit', function(e){
 
     if(password1Value.length < 6){
         showError(password1, "Password must be greater than 6 characters.")
+    } else if(usernameValue == password1Value) {
+        showError(password1, "Name and Password cannot be same.")
     } else {
         count++;
         showSuccess(password1);
