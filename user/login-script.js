@@ -39,8 +39,8 @@ form.addEventListener('submit',function(e){
                 phoneNumberData = snap.val().password;
                 if(passwordValue == phoneNumberData) {
                     alert("Login Succesfully!!!");
-                    // sessionStorage.setItem("phoneNumber" , phoneNumberValue);
-                    window.location.href = "../menu.html";
+                    sessionStorage.setItem("phoneNumber" , phoneNumberValue);
+                    window.location.href = "../index.html";
                 }
                 else {
                     alert("Login failed. Enter login credentials again!!!");

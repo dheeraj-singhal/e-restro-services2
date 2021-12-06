@@ -39,11 +39,7 @@
             onclick="openDropdownMenu()"
           ></a>
         </button>
-        <div id="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
+        <div id="dropdown-content"></div>
       </div>
     </header>
 
@@ -152,13 +148,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button class="cart-btn" onclick="addToCart('crispy-burger')">
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -176,13 +167,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button class="cart-btn" onclick="addToCart('crunchy-kabab')">
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -200,13 +186,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button class="cart-btn" onclick="addToCart('spicy-chicken')">
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -228,13 +209,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button class="cart-btn" onclick="addToCart('italian-pizza')">
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -252,21 +228,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button
-                class="cart-btn"
-                onclick="() => {
-                style.backgroundColor = 'blue';
-                disabled = true;
-                innerHTML ='ADDED TO CART';
-                addToCart('chocolaty-desert');
-              }"
-              >
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -284,13 +247,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-<<<<<<< HEAD
-              <button class="cart-btn" onclick="addToCart('hot-wings')">
-                Add To Cart
-=======
               <button class="cart-btn">
                 <a href="./menu.html" style="color: azure">Add To Cart</a>
->>>>>>> 8a526473f29ac4d12894459e03eb0ebea8a1b15c
               </button>
             </div>
           </div>
@@ -447,9 +405,9 @@
           <h2>Links</h2>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#Menu">Menu</a></li>
-            <li><a href="#Dishes">Dishes</a></li>
-            <li><a href="#About">About</a></li>
+            <li><a href="./menu.html">Menu</a></li>
+            <li><a href="#shop">Dishes</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#review">review</a></li>
           </ul>
         </div>
@@ -479,19 +437,17 @@
 
     <script>
       function openDropdownMenu() {
-         var a = document.getElementById("dropdown-content");
-         console.log("aksjdga");
-         if(a.style.display === "none"){
-           a.style.display = "block";
-         } else {
-           a.style.display = "none";
-         }
+        var a = document.getElementById("dropdown-content");
+        if (a.style.display === "none") {
+          a.style.display = "block";
+        } else {
+          a.style.display = "none";
+        }
       }
     </script>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script type="module" src="./script.js"></script>
-    <!-- <script type="module" src="./user/fireConfig.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
     <script src="./cart/cart.js"></script>

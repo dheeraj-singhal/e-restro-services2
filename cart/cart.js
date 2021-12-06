@@ -12,15 +12,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function addToCart(dishId) {
-  // console.log(dish);
-  // firebase.database().ref("menu-dishes").once('value',function(snap) {
-
-  // })
-  // firebase.database().ref("Order-history/" + sessionStorage.getItem('phoneNumber') + "/" + dishId)
-  // .set(
-
-  // )
-  firebase
+  if(sessionStorage.getItem("loggedInMobileNumber") != 'null') {
+    firebase
     .database()
     .ref("menu-dishes/")
     .orderByChild("dishID")
@@ -50,5 +43,8 @@ function addToCart(dishId) {
           });
       });
     });
+  } else {
+    window.location.href = "../user/login.html";
+  }
 }
 

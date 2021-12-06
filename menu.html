@@ -32,7 +32,16 @@
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
         <a href="./cart/cart.html" class="fas fa-shopping-cart"></a>
-        <a href="./user/login.html" class="fas fa-user"></a>
+        <button>
+          <a
+            href="#"
+            class="fas fa-user"
+            id="loginButton"
+            onclick="openDropdownMenu()"
+          ></a>
+        </button>
+        <div id="dropdown-content">
+        </div>
       </div>
     </header>
     <form action="" id="search-form">
@@ -59,9 +68,22 @@
     <button class="genre-head">Desserts</button>
     <div class="container-3" id="container-3"></div>
 
+    <script>
+      function openDropdownMenu() {
+        var a = document.getElementById("dropdown-content");
+        // console.log("aksjdga");
+        if (a.style.display === "none") {
+          a.style.display = "block";
+        } else {
+          a.style.display = "none";
+        }
+      }
+    </script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
     <script src="./menu.js" type="module" defer></script>
     <script src="./cart/cart.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
-var loggedInMobileNumber = '8824604864';
+var loggedInMobileNumber = null;
 
-// loggedInMobileNumber = sessionStorage.getItem('phoneNumber');
+loggedInMobileNumber = sessionStorage.getItem('phoneNumber');
 sessionStorage.setItem('loggedInMobileNumber', loggedInMobileNumber);
 // console.log(loggedInMobileNumber);
 // sessionStorage.getItem('loggedInMobileNumber');
@@ -65,3 +65,44 @@ var swiper = new Swiper(".review-slider", {
     },
   },
 });
+
+var a = document.getElementById("dropdown-content");
+var logo = document.createElement("span");
+var loginBtn = document.createElement("button");
+
+while(a.firstChild){
+  a.removeChild(a.lastChild);
+}
+
+if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
+  var username = document.createElement("p");
+  username.setAttribute("class", "username");
+  username.innerHTML = "Dheeraj Bhai"
+  var mobileNumber = document.createElement("p");
+  mobileNumber.setAttribute("class", "phone-number");
+  mobileNumber.innerHTML = sessionStorage.getItem("loggedInMobileNumber");
+  logo.innerHTML = "D";
+  logo.setAttribute("class", "userlogo");
+  loginBtn.setAttribute("class", "login");
+  loginBtn.innerHTML = "LOG OUT";
+  a.appendChild(logo);
+  a.appendChild(username);
+  a.appendChild(mobileNumber);
+  a.appendChild(loginBtn);
+  loginBtn.onclick = () =>{
+    sessionStorage.setItem("phoneNumber" , null);
+    // sessionStorage.setItem("loggedInMobileNumber", null);
+    window.location.href = "./index.html";
+  }
+} else {
+  logo.innerHTML = "U";
+  logo.setAttribute("class", "userlogo");
+  loginBtn.setAttribute("class", "login");
+  loginBtn.innerHTML = "LOGIN";
+  a.appendChild(logo);
+  a.appendChild(loginBtn);
+  loginBtn.onclick = () =>{
+    window.location.href = "./user/login.html";
+    console.log("adsad");
+  }
+}

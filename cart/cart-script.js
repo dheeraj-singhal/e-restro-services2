@@ -17,7 +17,11 @@ function fetchDataWithValue(a) {
       let dishId = childsnap.val().id;
       addItemsToLayout(name, price, description, imageurl, qty, dishId);
     });
-    console.log(total_price);
+    // console.log(total_price);
+    document.getElementById("totalPrice").innerHTML = "₹ " + total_price + "/-";
+    var discount = 10;
+    document.getElementById("discountValue").innerHTML = discount + "%";
+    document.getElementById("finalValue").innerHTML = "₹ " + (total_price - ((total_price * discount)/ 100)) + "/-";
   });
 }
 
@@ -68,4 +72,48 @@ function addItemsToLayout(name, price, description, url, qty, id) {
 
 fetchDataWithValue(sessionStorage.getItem("loggedInMobileNumber"));
 
+function orderPlaced() {
+  alert("Your Order has been placed Successfully!");
+  window.location.href = "../index.html";
+}
 
+var a = document.getElementById("dropdown-content");
+var logo = document.createElement("span");
+var loginBtn = document.createElement("button");
+
+while(a.firstChild){
+  a.removeChild(a.lastChild);
+}
+
+if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
+  var username = document.createElement("p");
+  username.setAttribute("class", "username");
+  username.innerHTML = "Dheeraj Bhai"
+  var mobileNumber = document.createElement("p");
+  mobileNumber.setAttribute("class", "phone-number");
+  mobileNumber.innerHTML = sessionStorage.getItem("loggedInMobileNumber");
+  logo.innerHTML = "D";
+  logo.setAttribute("class", "userlogo");
+  loginBtn.setAttribute("class", "login");
+  loginBtn.innerHTML = "LOG OUT";
+  a.appendChild(logo);
+  a.appendChild(username);
+  a.appendChild(mobileNumber);
+  a.appendChild(loginBtn);
+  loginBtn.onclick = () =>{
+    sessionStorage.setItem("phoneNumber" , null);
+    // sessionStorage.setItem("loggedInMobileNumber", null);
+    window.location.href = "../index.html";
+  }
+} else {
+  logo.innerHTML = "U";
+  logo.setAttribute("class", "userlogo");
+  loginBtn.setAttribute("class", "login");
+  loginBtn.innerHTML = "LOGIN";
+  a.appendChild(logo);
+  a.appendChild(loginBtn);
+  loginBtn.onclick = () =>{
+    window.location.href = "../user/login.html";
+    console.log("adsad");
+  }
+}
