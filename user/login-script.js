@@ -39,7 +39,7 @@ form.addEventListener('submit',function(e){
                 phoneNumberData = snap.val().password;
                 if(passwordValue == phoneNumberData) {
                     alert("Login Succesfully!!!");
-                    sessionStorage.setItem("phoneNumber" , phoneNumberValue);
+                    // sessionStorage.setItem("phoneNumber" , phoneNumberValue);
                     window.location.href = "../menu.html";
                 }
                 else {

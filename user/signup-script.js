@@ -79,7 +79,7 @@ form.addEventListener('submit', function(e){
             document.getElementById('phone-number').value = "";
             document.getElementById('password1').value = "";
             document.getElementById('password2').value = "";
-            sessionStorage.setItem("phoneNumber" , phoneNumberValue);
+            // sessionStorage.setItem("phoneNumber" , phoneNumberValue);
             window.location.href = './login.html';
         }
    });

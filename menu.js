@@ -15,7 +15,7 @@ var firebaseConfig = {
 
 
 function fetchDataWithValueA(a) {
-  firebase.initializeApp(firebaseConfig);
+  // firebase.initializeApp(firebaseConfig);
   var reference = firebase.database().ref("menu-dishes/");
   reference.orderByChild("genre").equalTo(a).once('value', function(snap) {
     snap.forEach(function(childsnap){
@@ -23,7 +23,8 @@ function fetchDataWithValueA(a) {
       let description = childsnap.val().description;
       let price = childsnap.val().price;
       let imageurl = childsnap.val().imageurl;
-     addItemsToLayoutA(name, price, description, imageurl);
+      let dishId = childsnap.val().dishID;
+     addItemsToLayoutA(name, price, description, imageurl, dishId);
     });
  });
 }
@@ -35,12 +36,13 @@ function fetchData(){
       let description = childsnap.val().description;
       let price = childsnap.val().price;
       let imageurl = childsnap.val().imageurl;
-     addItemsToLayout(name, price, description, imageurl);
+      let dishId = childsnap.val().dishID;
+     addItemsToLayout(name, price, description, imageurl, dishId);
     });
   });
 }
 
-function addItemsToLayoutA(name, price, description, url){
+function addItemsToLayoutA(name, price, description, url, dishId){
   var a = document.getElementById('container-1');
 
   var aDiv = document.createElement('div');
@@ -49,6 +51,8 @@ function addItemsToLayoutA(name, price, description, url){
   var aPrice = document.createElement('p');
   var aImage = document.createElement('img');
   var aButton = document.createElement('button');
+  var onclickFun = "addToCart('" + dishId + "')";
+  // console.log(onclickFun);
 
   aName.innerHTML = name;
   aName.setAttribute('class', 'content-heading');
@@ -58,6 +62,14 @@ function addItemsToLayoutA(name, price, description, url){
   aDescription.setAttribute('class', 'stars');
   aImage.setAttribute('class', 'image');
   aButton.setAttribute('class', 'cart-btn');
+  // aButton.setAttribute('onclick', onclickFun);
+  aButton.onclick = function () {
+    aButton.style.backgroundColor = "blue";
+    aButton.disabled = true;
+    aButton.innerHTML = "ADDED TO CART";
+    // console.log("disa");
+    addToCart(dishId);
+  }
   aButton.innerHTML = "Add to cart";
   aImage.src = url;
 
@@ -80,11 +92,12 @@ function addItemsToLayoutA(name, price, description, url){
         let description = childsnap.val().description;
         let price = childsnap.val().price;
         let imageurl = childsnap.val().imageurl;
-       addItemsToLayoutB(name, price, description, imageurl);
+        let dishId = childsnap.val().dishID;
+       addItemsToLayoutB(name, price, description, imageurl, dishId);
       });
    });
   }
-  function addItemsToLayoutB(name, price, description, url){
+  function addItemsToLayoutB(name, price, description, url, dishId){
     var a = document.getElementById('container-2');
   
     var aDiv = document.createElement('div');
@@ -93,6 +106,7 @@ function addItemsToLayoutA(name, price, description, url){
     var aPrice = document.createElement('p');
     var aImage = document.createElement('img');
     var aButton = document.createElement('button');
+    var onclickFun = "addToCart('" + dishId + "')";
   
     aName.innerHTML = name;
     aName.setAttribute('class', 'content-heading');
@@ -102,6 +116,14 @@ function addItemsToLayoutA(name, price, description, url){
     aDescription.setAttribute('class', 'stars');
     aImage.setAttribute('class', 'image');
     aButton.setAttribute('class', 'cart-btn');
+    // aButton.setAttribute('onclick', onclickFun);
+    aButton.onclick = function () {
+      aButton.style.backgroundColor = "blue";
+      aButton.disabled = true;
+      aButton.innerHTML = "ADDED TO CART";
+      // console.log("disa");
+      addToCart(dishId);
+    }
     aButton.innerHTML = "Add to cart";
     aImage.src = url;
   
@@ -123,11 +145,12 @@ function addItemsToLayoutA(name, price, description, url){
         let description = childsnap.val().description;
         let price = childsnap.val().price;
         let imageurl = childsnap.val().imageurl;
-       addItemsToLayoutC(name, price, description, imageurl);
+        let dishId = childsnap.val().dishID;
+       addItemsToLayoutC(name, price, description, imageurl, dishId);
       });
    });
   }
-  function addItemsToLayoutC(name, price, description, url){
+  function addItemsToLayoutC(name, price, description, url, dishId){
     var a = document.getElementById('container-3');
   
     var aDiv = document.createElement('div');
@@ -136,6 +159,7 @@ function addItemsToLayoutA(name, price, description, url){
     var aPrice = document.createElement('p');
     var aImage = document.createElement('img');
     var aButton = document.createElement('button');
+    var onclickFun = "addToCart('" + dishId + "')";
   
     aName.innerHTML = name;
     aName.setAttribute('class', 'content-heading');
@@ -145,6 +169,13 @@ function addItemsToLayoutA(name, price, description, url){
     aDescription.setAttribute('class', 'stars');
     aImage.setAttribute('class', 'image');
     aButton.setAttribute('class', 'cart-btn');
+    aButton.onclick = function () {
+      aButton.style.backgroundColor = "blue";
+      aButton.disabled = true;
+      aButton.innerHTML = "ADDED TO CART";
+      // console.log("disa");
+      addToCart(dishId);
+    }
     aButton.innerHTML = "Add to cart";
     aImage.src = url;
   
