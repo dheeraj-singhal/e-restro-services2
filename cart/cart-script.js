@@ -63,7 +63,6 @@ function addItemsToLayout(name, price, description, url, qty, id) {
   aDiv.appendChild(aImage);
   aDiv.appendChild(aName);
   aDiv.appendChild(aPrice);
-  // aDiv.appendChild(aDescription);
   aDiv.appendChild(aQty);
   aDiv.setAttribute("class", "slide");
   aDiv.appendChild(aRemoveButton);
@@ -102,7 +101,6 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   a.appendChild(loginBtn);
   loginBtn.onclick = () =>{
     sessionStorage.setItem("phoneNumber" , null);
-    // sessionStorage.setItem("loggedInMobileNumber", null);
     window.location.href = "../index.html";
   }
 } else {

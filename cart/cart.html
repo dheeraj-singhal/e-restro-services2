@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="./cart.css" />
@@ -15,42 +15,41 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="#" class="logo"><i class="fas fa-utensils"></i>restro</a>
-        <nav class="navbar">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">about</a>
-          <a href="../index.html#shop">Dishes</a>
-          <a href="../menu.html">menu</a>
-          <a href="../index.html#review">review</a>
-        </nav>
-  
-        <div class="icons">
-          <i class="fas fa-bars" id="menu-bars"></i>
-          <i class="fas fa-search" id="search-icon"></i>
-          <a href="./cart/cart.html" class="fas fa-shopping-cart"></a>
-          <button>
-            <a
-              href="#"
-              class="fas fa-user"
-              id="loginButton"
-              onclick="openDropdownMenu()"
-            ></a>
-          </button>
-          <div id="dropdown-content">
-          </div>
-        </div>
-      </header>
-      <div class="back-img">
-        <h2>Featured Food</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, animi.
-        </p>
+      <a href="#" class="logo"><i class="fas fa-utensils"></i>restro</a>
+      <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">about</a>
+        <a href="../index.html#shop">Dishes</a>
+        <a href="../menu.html">menu</a>
+        <a href="../index.html#review">review</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="./cart/cart.html" class="fas fa-shopping-cart"></a>
+        <button>
+          <a
+            href="#"
+            class="fas fa-user"
+            id="loginButton"
+            onclick="openDropdownMenu()"
+          ></a>
+        </button>
+        <div id="dropdown-content"></div>
       </div>
-      <div class="cart-container" id="cart-container"></div>
-      <div class="side-container" id="side-container">
+    </header>
+    <div class="back-img">
+      <h2>Featured Food</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, animi.
+      </p>
+    </div>
+    <div class="cart-container" id="cart-container"></div>
+    <div class="side-container" id="side-container">
       <table>
         <tbody>
           <tr>
@@ -63,7 +62,7 @@
           </tr>
           <tr>
             <td>Delivery charges</td>
-            <td style="color: rgb(7, 150, 43);">free</td>
+            <td style="color: rgb(7, 150, 43)">free</td>
           </tr>
           <tr>
             <td>Total amount</td>
@@ -72,22 +71,22 @@
         </tbody>
       </table>
       <button class="cart-btn" onclick="orderPlaced()">Place order</button>
-      </div>
-    
-      <script>
-        function openDropdownMenu() {
-          var a = document.getElementById("dropdown-content");
-          // console.log("aksjdga");
-          if (a.style.display === "none") {
-            a.style.display = "block";
-          } else {
-            a.style.display = "none";
-          }
+    </div>
+
+    <script>
+      function openDropdownMenu() {
+        var a = document.getElementById("dropdown-content");
+        // console.log("aksjdga");
+        if (a.style.display === "none") {
+          a.style.display = "block";
+        } else {
+          a.style.display = "none";
         }
-      </script>
+      }
+    </script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
     <script src="./cart.js"></script>
     <script src="./cart-script.js"></script>
-</body>
+  </body>
 </html>
