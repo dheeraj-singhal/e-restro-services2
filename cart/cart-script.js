@@ -40,8 +40,10 @@ function addItemsToLayout(name, price, description, url, qty, id) {
   aDescription.setAttribute("class", "stars");
   aImage.setAttribute("class", "image");
   aImage.src = url;
-  aQty.innerHTML = qty;
+  aQty.innerHTML = "Qty : " + qty;
+  aQty.setAttribute('class', 'quantity');
   aRemoveButton.innerHTML = "REMOVE";
+  aRemoveButton.setAttribute('class', 'remove-btn');
   aRemoveButton.onclick = function () {
     firebase
       .database()
@@ -57,7 +59,7 @@ function addItemsToLayout(name, price, description, url, qty, id) {
   aDiv.appendChild(aImage);
   aDiv.appendChild(aName);
   aDiv.appendChild(aPrice);
-  aDiv.appendChild(aDescription);
+  // aDiv.appendChild(aDescription);
   aDiv.appendChild(aQty);
   aDiv.setAttribute("class", "slide");
   aDiv.appendChild(aRemoveButton);
