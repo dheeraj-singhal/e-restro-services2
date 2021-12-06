@@ -31,7 +31,19 @@
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
         <a href="./cart/cart.html" class="fas fa-shopping-cart"></a>
-        <a href="./user/login.html" class="fas fa-user"></a>
+        <button>
+          <a
+            href="#"
+            class="fas fa-user"
+            id="loginButton"
+            onclick="openDropdownMenu()"
+          ></a>
+        </button>
+        <div id="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
       </div>
     </header>
 
@@ -140,7 +152,9 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="addToCart('crispy-burger')">Add To Cart</button>
+              <button class="cart-btn" onclick="addToCart('crispy-burger')">
+                Add To Cart
+              </button>
             </div>
           </div>
           <div class="slide">
@@ -157,7 +171,9 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="addToCart('crunchy-kabab')">Add To Cart</button>
+              <button class="cart-btn" onclick="addToCart('crunchy-kabab')">
+                Add To Cart
+              </button>
             </div>
           </div>
           <div class="slide">
@@ -174,7 +190,9 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="addToCart('spicy-chicken')">Add To Cart</button>
+              <button class="cart-btn" onclick="addToCart('spicy-chicken')">
+                Add To Cart
+              </button>
             </div>
           </div>
           <div class="slide">
@@ -195,7 +213,9 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="addToCart('italian-pizza')">Add To Cart</button>
+              <button class="cart-btn" onclick="addToCart('italian-pizza')">
+                Add To Cart
+              </button>
             </div>
           </div>
           <div class="slide">
@@ -212,12 +232,17 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="() => {
+              <button
+                class="cart-btn"
+                onclick="() => {
                 style.backgroundColor = 'blue';
                 disabled = true;
                 innerHTML ='ADDED TO CART';
                 addToCart('chocolaty-desert');
-              }">Add To Cart</button>
+              }"
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
           <div class="slide">
@@ -234,7 +259,9 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </div>
-              <button class="cart-btn" onclick="addToCart('hot-wings')">Add To Cart</button>
+              <button class="cart-btn" onclick="addToCart('hot-wings')">
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
@@ -414,6 +441,18 @@
         <p>Copyright © 2021 All Rights Reserved</p>
       </div>
     </footer>
+
+    <script>
+      function openDropdownMenu() {
+         var a = document.getElementById("dropdown-content");
+         console.log("aksjdga");
+         if(a.style.display === "none"){
+           a.style.display = "block";
+         } else {
+           a.style.display = "none";
+         }
+      }
+    </script>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script type="module" src="./script.js"></script>
