@@ -27,6 +27,7 @@ form.addEventListener("submit", function (e) {
     showSuccess(password);
   }
   var b = 0;
+  console.log(count);
   if (count == 2) {
     var reference = firebase.database().ref("Users/");
     reference
@@ -43,7 +44,7 @@ form.addEventListener("submit", function (e) {
             .ref("Users/" + phoneNumberValue)
             .on("value", function (snap) {
               phoneNumberData = snap.val().password;
-              usernameValue = snap.val().name;
+              var usernameValue = snap.val().name;
               if (passwordValue == phoneNumberData) {
                 alert("Login Succesfully!!!");
                 sessionStorage.setItem("phoneNumber", phoneNumberValue);

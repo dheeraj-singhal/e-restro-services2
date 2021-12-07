@@ -44,6 +44,6 @@ function addToCart(dishId) {
         });
       });
   } else {
-    window.location.href = "https://dheeraj-singhal.github.io/e-restro-services2/user/login.html";
+    window.location.href = "./user/login.html";
   }
 }
