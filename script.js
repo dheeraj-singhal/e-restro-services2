@@ -102,7 +102,7 @@ if (sessionStorage.getItem("loggedInMobileNumber") != "null") {
   a.appendChild(logo);
   a.appendChild(loginBtn);
   loginBtn.onclick = () => {
-    window.location.href = "./user/login.html";
+    window.location.href = "https://dheeraj-singhal.github.io/e-restro-services2/user/login.html";
     console.log("adsad");
   };
 }
