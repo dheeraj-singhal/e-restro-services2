@@ -1,49 +1,48 @@
-let menu = document.querySelector('#menu-bars');
-let navbar = document.querySelector('.navbar');
+let menu = document.querySelector("#menu-bars");
+let navbar = document.querySelector(".navbar");
 
 var loggedInMobileNumber = null;
 
-loggedInMobileNumber = sessionStorage.getItem('phoneNumber');
-sessionStorage.setItem('loggedInMobileNumber', loggedInMobileNumber);
+loggedInMobileNumber = sessionStorage.getItem("phoneNumber");
+sessionStorage.setItem("loggedInMobileNumber", loggedInMobileNumber);
 // console.log(loggedInMobileNumber);
 // sessionStorage.getItem('loggedInMobileNumber');
 
-menu.onclick = function() {
-  menu.classList.toggle('fa-times');
-  navbar.classList.toggle('active');
-}
+menu.onclick = function () {
+  menu.classList.toggle("fa-times");
+  navbar.classList.toggle("active");
+};
 
 window.onscroll = () => {
-  menu.classList.remove('fa-times');
-  navbar.classList.remove('active');
-}
+  menu.classList.remove("fa-times");
+  navbar.classList.remove("active");
+};
 
-document.querySelector('#search-icon').onclick = () => {
-  document.querySelector('#search-form').classList.toggle('active');
-}
+document.querySelector("#search-icon").onclick = () => {
+  document.querySelector("#search-form").classList.toggle("active");
+};
 
-document.querySelector('#close').onclick = () => {
-  document.querySelector('#search-form').classList.remove('active');
-}
-
+document.querySelector("#close").onclick = () => {
+  document.querySelector("#search-form").classList.remove("active");
+};
 
 var swiper = new Swiper(".home-slider", {
   centeredSlides: true,
   spaceBetween: 30,
   autoplay: {
-    delay : 3500,
+    delay: 3500,
     disableOnInteraction: false,
   },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-  loop:true,
+  loop: true,
 });
 
 var swiper = new Swiper(".review-slider", {
-  grabCursor:true,
-  spaceBetween:20,
+  grabCursor: true,
+  spaceBetween: 20,
   // autoplay: {
   //   delay : 3500,
   //   disableOnInteraction: false,
@@ -52,7 +51,7 @@ var swiper = new Swiper(".review-slider", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  loop:true,
+  loop: true,
   breakpoints: {
     0: {
       slidesPerView: 1,
@@ -70,11 +69,11 @@ var a = document.getElementById("dropdown-content");
 var logo = document.createElement("span");
 var loginBtn = document.createElement("button");
 
-while(a.firstChild){
+while (a.firstChild) {
   a.removeChild(a.lastChild);
 }
 
-if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
+if (sessionStorage.getItem("loggedInMobileNumber") != "null") {
   var username = document.createElement("p");
   username.setAttribute("class", "username");
   username.innerHTML = sessionStorage.getItem("username");
@@ -89,12 +88,12 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   a.appendChild(username);
   a.appendChild(mobileNumber);
   a.appendChild(loginBtn);
-  loginBtn.onclick = () =>{
-    sessionStorage.setItem("phoneNumber" , null);
+  loginBtn.onclick = () => {
+    sessionStorage.setItem("phoneNumber", null);
     sessionStorage.setItem("username", null);
     // sessionStorage.setItem("loggedInMobileNumber", null);
     window.location.href = "./index.html";
-  }
+  };
 } else {
   logo.innerHTML = "U";
   logo.setAttribute("class", "userlogo");
@@ -102,8 +101,8 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   loginBtn.innerHTML = "LOGIN";
   a.appendChild(logo);
   a.appendChild(loginBtn);
-  loginBtn.onclick = () =>{
+  loginBtn.onclick = () => {
     window.location.href = "./user/login.html";
     console.log("adsad");
-  }
+  };
 }

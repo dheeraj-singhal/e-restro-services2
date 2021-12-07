@@ -1,12 +1,12 @@
 function fetchDataWithValue(a) {
   // console.log(a);
-  var reference = firebase.database().ref("Order-history/" + a + "/");  
+  var reference = firebase.database().ref("Order-history/" + a + "/");
   reference.on("value", function (snap) {
     var a = document.getElementById("cart-container");
-  while(a.firstChild){
-    a.removeChild(a.lastChild);
-  }
-  var total_price = 0;
+    while (a.firstChild) {
+      a.removeChild(a.lastChild);
+    }
+    var total_price = 0;
     snap.forEach(function (childsnap) {
       let name = childsnap.val().dish;
       let description = childsnap.val().description;
@@ -21,7 +21,8 @@ function fetchDataWithValue(a) {
     document.getElementById("totalPrice").innerHTML = "₹ " + total_price + "/-";
     var discount = 10;
     document.getElementById("discountValue").innerHTML = discount + "%";
-    document.getElementById("finalValue").innerHTML = "₹ " + (total_price - ((total_price * discount)/ 100)) + "/-";
+    document.getElementById("finalValue").innerHTML =
+      "₹ " + (total_price - (total_price * discount) / 100) + "/-";
   });
 }
 
@@ -45,9 +46,9 @@ function addItemsToLayout(name, price, description, url, qty, id) {
   aImage.setAttribute("class", "image");
   aImage.src = url;
   aQty.innerHTML = "Qty : " + qty;
-  aQty.setAttribute('class', 'quantity');
+  aQty.setAttribute("class", "quantity");
   aRemoveButton.innerHTML = "REMOVE";
-  aRemoveButton.setAttribute('class', 'remove-btn');
+  aRemoveButton.setAttribute("class", "remove-btn");
   aRemoveButton.onclick = function () {
     firebase
       .database()
@@ -80,11 +81,11 @@ var a = document.getElementById("dropdown-content");
 var logo = document.createElement("span");
 var loginBtn = document.createElement("button");
 
-while(a.firstChild){
+while (a.firstChild) {
   a.removeChild(a.lastChild);
 }
 
-if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
+if (sessionStorage.getItem("loggedInMobileNumber") != "null") {
   var username = document.createElement("p");
   username.setAttribute("class", "username");
   username.innerHTML = sessionStorage.getItem("username");
@@ -99,11 +100,11 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   a.appendChild(username);
   a.appendChild(mobileNumber);
   a.appendChild(loginBtn);
-  loginBtn.onclick = () =>{
-    sessionStorage.setItem("phoneNumber" , null);
+  loginBtn.onclick = () => {
+    sessionStorage.setItem("phoneNumber", null);
     sessionStorage.setItem("username", null);
     window.location.href = "../index.html";
-  }
+  };
 } else {
   logo.innerHTML = "U";
   logo.setAttribute("class", "userlogo");
@@ -111,8 +112,8 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   loginBtn.innerHTML = "LOGIN";
   a.appendChild(logo);
   a.appendChild(loginBtn);
-  loginBtn.onclick = () =>{
+  loginBtn.onclick = () => {
     window.location.href = "../user/login.html";
     console.log("adsad");
-  }
+  };
 }
