@@ -77,11 +77,11 @@ while(a.firstChild){
 if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   var username = document.createElement("p");
   username.setAttribute("class", "username");
-  username.innerHTML = "Dheeraj Bhai"
+  username.innerHTML = sessionStorage.getItem("username");
   var mobileNumber = document.createElement("p");
   mobileNumber.setAttribute("class", "phone-number");
   mobileNumber.innerHTML = sessionStorage.getItem("loggedInMobileNumber");
-  logo.innerHTML = "D";
+  logo.innerHTML = sessionStorage.getItem("username").slice(0, 1).toUpperCase();
   logo.setAttribute("class", "userlogo");
   loginBtn.setAttribute("class", "login");
   loginBtn.innerHTML = "LOG OUT";
@@ -91,6 +91,7 @@ if(sessionStorage.getItem("loggedInMobileNumber") != "null"){
   a.appendChild(loginBtn);
   loginBtn.onclick = () =>{
     sessionStorage.setItem("phoneNumber" , null);
+    sessionStorage.setItem("username", null);
     // sessionStorage.setItem("loggedInMobileNumber", null);
     window.location.href = "./index.html";
   }

@@ -37,9 +37,11 @@ form.addEventListener('submit',function(e){
             var phoneNumberData;
             firebase.database().ref("Users/" + phoneNumberValue).on("value", function(snap) {
                 phoneNumberData = snap.val().password;
+                usernameValue = snap.val().name;
                 if(passwordValue == phoneNumberData) {
                     alert("Login Succesfully!!!");
                     sessionStorage.setItem("phoneNumber" , phoneNumberValue);
+                    sessionStorage.setItem("username", usernameValue);
                     window.location.href = "../index.html";
                 }
                 else {
